@@ -16,40 +16,45 @@ checkhttp = function()
 end
 
 if checkhttp() then
-    for i, v in pairs(getgenv().decoded) do
-        if v then
-            local http_use = v["http_use"]
-            local logo = v["logo"]
-            local path = v["path"]
-            local version = v["version"]
-            local tables_path = {}
-            for _, file in ipairs(listfiles(path)) do
-                table.insert(tables_path, file)
-            end
-            if tables_path then
-                function main._new()
-                   local main = tables_path["main"]
-                   local tables = tables_path["tables"]
-                   local func = tables_path["func"]
-                   local web = tables_path["web"]
-                   local hook = tables_path["hook"]
+    local http_use = getgenv().decoded["http_use"]
+    local logo = getgenv().decoded["logo"]
+    local path = getgenv().decoded["path"]
+    local version = getgenv().decoded["version"]
 
-                   if tables and func and web and hook then
-                     if tables then
-                        return getgenv().tables == tables
-                     end
-                     if func then
-                        return getgenv().func == func
-                     end
-                     if web then
-                        return getgenv().web == web
-                     end
-                     if hook then
-                        return getgenv().hook
-                     end
-                   end
+    if version and latestversion then
+        if tostring(version):gsub("%s+", "") ~= tostring(latestversion):gsub("%s+", "") then
+            warn("[vex] outdated version: " .. tostring(version) .. " (latest: " .. tostring(latestversion) .. ")")
+        end
+    end
+
+    if logo then
+        if isfile("Logo.png") then
+            pcall(delfile, "Logo.png")
+        end
+        local ok, data = pcall(game.HttpGet, game, logo)
+        if ok and data then
+            pcall(writefile, "Logo.png", data)
+        end
+    end
+
+    if path then
+        for name, url in pairs(path) do
+            local ok, src = pcall(game.HttpGet, game, url)
+            if ok and src then
+                local chunk = loadstring(src)
+                if chunk then
+                    local ran, err = pcall(chunk)
+                    if not ran then
+                        warn("[vex] failed to load " .. tostring(name) .. ": " .. tostring(err))
+                    end
+                else
+                    warn("[vex] could not compile " .. tostring(name))
                 end
+            else
+                warn("[vex] could not fetch " .. tostring(name) .. " from " .. tostring(url))
             end
         end
     end
 end
+
+return main
