@@ -28,12 +28,15 @@ if checkhttp() then
     end
 
     if logo then
-        if isfile("Logo.png") then
-            pcall(delfile, "Logo.png")
-        end
         local ok, data = pcall(game.HttpGet, game, logo)
         if ok and data then
-            pcall(writefile, "Logo.png", data)
+            local targets = { "New_Logo.png", "new_logo.png", "Logo.png" }
+            for _, name in ipairs(targets) do
+                if isfile(name) then
+                    pcall(delfile, name)
+                end
+            end
+            pcall(writefile, "New_Logo.png", data)
         end
     end
 
