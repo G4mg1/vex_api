@@ -2,7 +2,7 @@ local main = {}
 
 local config = "/home/g4mg/vex/config.json"
 local http = game:GetService("HttpService")
-local latestversion = game:HttpGet("https://github.com/G4mg/vex_api/version")
+local latestversion = game:HttpGet("https://raw.githubusercontent.com/G4mg1/vex_api/main/version.txt")
 
 checkhttp = function()
     local success, decode = pcall(function()
