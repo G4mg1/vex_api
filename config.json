@@ -1,12 +1,12 @@
 {
     "http_use": true,
-    "logo": "/home/g4mg/vex/vex.png",
-    "path":{
-        "main": "/home/g4mg/vex/main.lua",
-        "tables":"/home/g4mg/vex/tables.lua",
-        "func":"/home/g4mg/vex/func.lua",
-        "web":"/home/g4mg/vex/web.lua",
-        "hook":"/home/g4mg/vex/hook.lua"
+    "logo": "https://raw.githubusercontent.com/G4mg1/vex_api/main/vex.png",
+    "path": {
+        "main": "https://raw.githubusercontent.com/G4mg1/vex_api/main/main.lua",
+        "tables": "https://raw.githubusercontent.com/G4mg1/vex_api/main/tables.lua",
+        "func": "https://raw.githubusercontent.com/G4mg1/vex_api/main/func.lua",
+        "web": "https://raw.githubusercontent.com/G4mg1/vex_api/main/web.lua",
+        "hook": "https://raw.githubusercontent.com/G4mg1/vex_api/main/hook.lua"
     },
-    "version": 1.0
+    "version": "1.0"
 }
