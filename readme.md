@@ -17,7 +17,7 @@
 ## Installation
 
 ```lua
-local vex = loadstring(game:HttpGet("https://raw.githubusercontent.com/G4mg/vex_api/main/main.lua"))()
+local vex = loadstring(game:HttpGet("https://raw.githubusercontent.com/G4mg1/vex_api/main/main.lua"))()
 ```
 
 All modules are exposed through `getgenv()` so any script can use them:
