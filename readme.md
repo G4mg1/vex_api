@@ -268,7 +268,7 @@ end
 
 ```lua
 -- load vex
-local vex = loadstring(game:HttpGet("https://raw.githubusercontent.com/G4mg/vex_api/main/main.lua"))()
+local vex = loadstring(game:HttpGet("https://raw.githubusercontent.com/G4mg1/vex_api/main/main.lua"))()
 
 local web   = getgenv().web
 local func  = getgenv().func
