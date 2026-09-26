@@ -1,0 +1,12 @@
+{
+    "http_use": true,
+    "logo": "/home/g4mg/vex/vex.png",
+    "path":{
+        "main": "/home/g4mg/vex/main.lua",
+        "tables":"/home/g4mg/vex/tables.lua",
+        "func":"/home/g4mg/vex/func.lua",
+        "web":"/home/g4mg/vex/web.lua",
+        "hook":"/home/g4mg/vex/hook.lua"
+    },
+    "version": 1.0
+}
